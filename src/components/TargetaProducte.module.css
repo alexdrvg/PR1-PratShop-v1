@@ -1,0 +1,178 @@
+.targetaProducte {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radi-md, 10px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.targetaProducte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(10, 25, 47, 0.08);
+  border-color: var(--border-color-hover, #cbd5e1);
+}
+
+.targetaProducte.senseEstoc {
+  opacity: 0.75;
+}
+
+.targetaProducte.senseEstoc:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-color);
+}
+
+.targetaImatgedEmbolcall {
+  background-color: var(--bg-card-image, #f8fafc);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.targetaImatgedEmbolcall.senseEstocImatge {
+  opacity: 0.6;
+}
+
+.targetaCapcaleraImatge {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 24px;
+  width: 100%;
+}
+
+.targetaSvgContenidor {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.targetaSvgContenidor img,
+.targetaSvgContenidor svg {
+  width: 65%;
+  height: 65%;
+  max-width: 130px;
+  max-height: 130px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.targetaProducte:not(.senseEstoc):hover .targetaSvgContenidor img,
+.targetaProducte:not(.senseEstoc):hover .targetaSvgContenidor svg {
+  transform: scale(1.06);
+}
+
+.insigniaTargeta {
+  background-color: var(--accent-violet);
+  color: var(--primary-navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radi-sm, 4px);
+  letter-spacing: 0.02em;
+  align-self: flex-start;
+}
+
+.targetaContingut {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+}
+
+.targetaCategoria {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.targetaTitol {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.targetaDescripcio {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+  line-height: 1.45;
+}
+
+.targetaPeu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-divider, #f1f5f9);
+}
+
+.targetaPreuGrup {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.targetaPreu {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  white-space: nowrap;
+}
+
+.targetaPreuAntic {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.botoAfegir {
+  background-color: var(--primary-navy);
+  color: var(--bg-white);
+  border: 1px solid var(--primary-navy);
+  border-radius: var(--radi-sm, 6px);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.botoAfegir:hover {
+  background-color: var(--primary-navy-hover);
+  border-color: var(--primary-navy-hover);
+}
+
+.botoAfegir:active {
+  transform: scale(0.97);
+}
+
+.botoAfegir.esgotat,
+.botoAfegir:disabled {
+  background-color: var(--disabled-bg, #e2e8f0);
+  color: var(--disabled-text, #94a3b8);
+  border-color: var(--disabled-border, #cbd5e1);
+  cursor: not-allowed;
+  transform: none;
+}

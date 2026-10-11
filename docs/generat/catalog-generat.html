@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PratShop Tech - Minimalist Tech Store</title>
+<link rel="stylesheet" href="capcalera-generat.css">
+<link rel="stylesheet" href="targeta-generat.css">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+    /* CSS */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-page: #f8fafc;
+      --bg-white: #ffffff;
+      --primary-navy: #0a192f;
+      --primary-navy-hover: #1e293b;
+      --accent-violet: #d8b4fe;
+      --accent-violet-dark: #6b21a8;
+      --accent-violet-soft: #faf5ff;
+      --accent-violet-border: #f3e8ff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --disabled-bg: #e2e8f0;
+      --disabled-text: #94a3b8;
+      --disabled-border: #cbd5e1;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Filter Bar Component (.barra-filtres) */
+    .barra-filtres {
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+    }
+
+    .filtres-contenidor {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .navegacio-categories {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+
+    .navegacio-categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .boto-categoria {
+      background: none;
+      border: 1px solid transparent;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .boto-categoria:hover {
+      color: var(--primary-navy);
+      background-color: #f1f5f9;
+    }
+
+    .boto-categoria.activa {
+      background-color: var(--primary-navy);
+      color: var(--bg-white);
+    }
+
+    .boto-categoria.destacat {
+      background-color: var(--accent-violet-soft);
+      color: var(--accent-violet-dark);
+      border-color: var(--accent-violet-border);
+    }
+
+    .recompte-resultats {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Main Content + Grid Layout (.contingut-principal, .cataleg-productes) */
+    .contingut-principal {
+      max-width: 1280px;
+      width: 100%;
+      margin: 2.25rem auto 4rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    /* Desktop default: Wide 4-column product grid */
+    .cataleg-productes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+
+    /* 5. Footer Component (.peu-pagina) */
+    .peu-pagina {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-white);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    /* 6. Responsive Breakpoints (Tablet & Mobile down to 390px) */
+    @media (max-width: 1100px) {
+      .cataleg-productes {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .capcalera {
+        padding: 0.85rem 1rem;
+      }
+
+      .capcalera-contenidor {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .logotip-area {
+        order: 1;
+      }
+
+      .capcalera-accions {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .cercador-caixa {
+        order: 3;
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .barra-filtres {
+        padding: 0.65rem 1rem;
+      }
+
+      .filtres-contenidor {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .navegacio-categories {
+        width: 100%;
+      }
+
+      .recompte-resultats {
+        font-size: 0.8rem;
+      }
+
+      .contingut-principal {
+        padding: 0 1rem;
+        margin: 1.5rem auto 3rem auto;
+      }
+
+      .cataleg-productes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    /* Mobile screens (down to 390px and below) */
+    @media (max-width: 580px) {
+      .capcalera {
+        padding: 0.75rem 0.85rem;
+      }
+
+      .logotip-titol {
+        font-size: 1.2rem;
+      }
+
+      .boto-cistella {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.85rem;
+      }
+
+      .cercador-caixa {
+        padding: 0.5rem 0.75rem;
+      }
+
+      .contingut-principal {
+        padding: 0 0.85rem;
+        margin: 1.25rem auto 2.5rem auto;
+      }
+
+      /* Single fluid column transformation */
+      .cataleg-productes {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .targeta-producte {
+        border-radius: 8px;
+      }
+
+      .targeta-imatge-embolcall {
+        aspect-ratio: 16 / 10;
+        padding: 0.85rem;
+      }
+
+      .targeta-svg-contenidor svg {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      .targeta-contingut {
+        padding: 1rem;
+      }
+
+      .targeta-peu {
+        padding-top: 0.65rem;
+      }
+
+      .peu-pagina {
+        padding: 1.5rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Capçalera amb logo, cercador responsiu i cistella -->
+<header class="capcalera">
+<div class="capcalera-contenidor">
+<a class="logotip-area" href="#"><h1 class="logotip-titol">PratShop</h1><span style="font-size: 0.95rem; font-weight: 500; color: rgba(255, 255, 255, 0.75); letter-spacing: 0.04em;" class="">Tech</span></a>
+<!-- Cercador fluid al 100% en tauleta/mòbil -->
+<div class="cercador-caixa">
+<svg class="cercador-icona" viewBox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+<input aria-label="Buscar productos" class="cercador-input" placeholder="Buscar auriculares, smartwatches, cargadores..." type="text">
+</div>
+<!-- Accions capçalera amb cistella -->
+<div class="capcalera-accions">
+<button aria-label="Carrito de compras" class="boto-cistella">
+<span class="cistella-icona">
+<svg viewBox="0 0 24 24">
+<circle cx="9" cy="21" r="1"></circle>
+<circle cx="20" cy="21" r="1"></circle>
+<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+</svg>
+</span>
+<span class="">Carrito</span>
+<span class="cistella-comptador">2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Barra de Filtres Horitzontal Scrollable -->
+<section class="barra-filtres">
+<div class="filtres-contenidor">
+<nav aria-label="Categorías de productos" class="navegacio-categories">
+<button class="boto-categoria activa">Todos los productos</button>
+<button class="boto-categoria">Auriculares</button>
+<button class="boto-categoria">Relojes Inteligentes</button>
+<button class="boto-categoria">Audio &amp; Altavoces</button>
+<button class="boto-categoria">Accesorios</button>
+<button class="boto-categoria destacat">Destacados ✨</button>
+</nav>
+<div class="recompte-resultats">Mostrando <strong>6</strong> productos</div>
+</div>
+</section>
+<!-- Contingut Principal amb Catàleg -->
+<main class="contingut-principal">
+<div class="cataleg-productes">
+<!-- Producte 1: Auriculars Diadema -->
+<article class="targeta-producte">
+<div class="targeta-imatge-embolcall">
+<div class="targeta-capcalera-imatge">
+<span class="insignia-targeta">Más vendido</span>
+</div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración Auriculares" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 52C22 36.536 34.536 24 50 24C65.464 24 78 36.536 78 52V70" stroke="#0a192f" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#0a192f" height="26" rx="7" width="14" x="16" y="52"></rect>
+<rect fill="#0a192f" height="26" rx="7" width="14" x="70" y="52"></rect>
+<rect fill="#d8b4fe" height="18" rx="3" width="6" x="22" y="56"></rect>
+<rect fill="#d8b4fe" height="18" rx="3" width="6" x="72" y="56"></rect>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Auriculares</span>
+<h2 class="targeta-titol">Auriculares Noise Cancel Pro X</h2>
+<p class="targeta-descripcio">Cancelación activa de ruido, 40h de batería y sonido de alta fidelidad.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">149,99 €</span>
+<span class="targeta-preu-antic">189 €</span>
+</div>
+<button class="boto-afegir">Añadir al carro</button>
+</div>
+</div>
+</article>
+<!-- Producte 2: Smartwatch -->
+<article class="targeta-producte">
+<div class="targeta-imatge-embolcall">
+<div class="targeta-capcalera-imatge">
+<span class="insignia-targeta">Nuevo</span>
+</div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración Smartwatch" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#64748b" height="18" rx="2" width="16" x="42" y="14"></rect>
+<rect fill="#64748b" height="18" rx="2" width="16" x="42" y="68"></rect>
+<rect fill="#0a192f" height="40" rx="10" width="40" x="30" y="30"></rect>
+<rect fill="#1e293b" height="30" rx="6" width="30" x="35" y="35"></rect>
+<circle cx="50" cy="50" r="8" stroke="#d8b4fe" stroke-dasharray="35 15" stroke-width="3"></circle>
+<circle cx="50" cy="50" fill="#ffffff" r="2"></circle>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Smartwatches</span>
+<h2 class="targeta-titol">Reloj Inteligente Pulse Fit 3</h2>
+<p class="targeta-descripcio">Pantalla AMOLED, monitor de ritmo cardíaco continuo y resistencia al agua 5ATM.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">89,90 €</span>
+</div>
+<button class="boto-afegir">Añadir al carro</button>
+</div>
+</div>
+</article>
+<!-- Producte 3: Auriculars True Wireless (Sense Estoc) -->
+<article class="targeta-producte sense-estoc">
+<div class="targeta-imatge-embolcall sense-estoc-imatge">
+<div class="targeta-capcalera-imatge">
+<span class="insignia-targeta">Sin stock</span>
+</div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración In-ear Earbuds" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#0a192f" height="30" rx="12" width="40" x="30" y="38"></rect>
+<path d="M30 46H70" stroke="#d8b4fe" stroke-width="2"></path>
+<circle cx="50" cy="56" fill="#d8b4fe" r="3"></circle>
+<circle cx="24" cy="34" fill="#0a192f" r="5"></circle>
+<rect fill="#0a192f" height="10" rx="1.5" width="3" x="23" y="34"></rect>
+<circle cx="76" cy="34" fill="#0a192f" r="5"></circle>
+<rect fill="#0a192f" height="10" rx="1.5" width="3" x="74" y="34"></rect>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Auriculares</span>
+<h2 class="targeta-titol">AirPods Lite Bluetooth 5.3</h2>
+<p class="targeta-descripcio">Diseño ergonómico ultra liviano, estuche compacto con carga rápida tipo C.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">49,00 €</span>
+</div>
+<button class="boto-afegir esgotat" disabled="">Agotado</button>
+</div>
+</div>
+</article>
+<!-- Producte 4: Altaveu Portàtil -->
+<article class="targeta-producte">
+<div class="targeta-imatge-embolcall">
+<div class="targeta-capcalera-imatge"></div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración Altavoz Portátil" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#0a192f" height="42" rx="10" width="44" x="28" y="30"></rect>
+<circle cx="50" cy="46" r="11" stroke="#d8b4fe" stroke-width="4"></circle>
+<circle cx="50" cy="46" fill="#d8b4fe" r="5"></circle>
+<line stroke="#64748b" stroke-linecap="round" stroke-width="3" x1="38" x2="62" y1="63" y2="63"></line>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Audio &amp; Altavoces</span>
+<h2 class="targeta-titol">Altavoz Bluetooth SoundMini 360</h2>
+<p class="targeta-descripcio">Audio espacial envolvente 360°, protección IPX7 y conexión multipunto.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">39,95 €</span>
+<span class="targeta-preu-antic">55 €</span>
+</div>
+<button class="boto-afegir">Añadir al carro</button>
+</div>
+</div>
+</article>
+<!-- Producte 5: Carregador Sense Fils -->
+<article class="targeta-producte">
+<div class="targeta-imatge-embolcall">
+<div class="targeta-capcalera-imatge"></div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración Cargador Inalámbrico" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="50" cy="58" fill="#0a192f" rx="28" ry="12"></ellipse>
+<ellipse cx="50" cy="52" fill="#1e293b" rx="28" ry="12"></ellipse>
+<path d="M49 46L44 54H51L49 60L56 51H49L49 46Z" fill="#d8b4fe"></path>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Accesorios</span>
+<h2 class="targeta-titol">Cargador Inalámbrico MagPad 15W</h2>
+<p class="targeta-descripcio">Carga rápida magnética con disipación de calor de aluminio y protección Qi.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">24,50 €</span>
+</div>
+<button class="boto-afegir">Añadir al carro</button>
+</div>
+</div>
+</article>
+<!-- Producte 6: Teclat Mecànic Compacte -->
+<article class="targeta-producte">
+<div class="targeta-imatge-embolcall">
+<div class="targeta-capcalera-imatge">
+<span class="insignia-targeta">Edición limitada</span>
+</div>
+<div class="targeta-svg-contenidor">
+<svg aria-label="Ilustración Teclado Mecánico" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#0a192f" height="32" rx="5" width="60" x="20" y="36"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="7" x="26" y="42"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="7" x="36" y="42"></rect>
+<rect fill="#d8b4fe" height="6" rx="1.5" width="7" x="46" y="42"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="7" x="56" y="42"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="7" x="66" y="42"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="10" x="26" y="52"></rect>
+<rect fill="#d8b4fe" height="6" rx="1.5" width="22" x="39" y="52"></rect>
+<rect fill="#ffffff" height="6" rx="1.5" width="9" x="64" y="52"></rect>
+</svg>
+</div>
+</div>
+<div class="targeta-contingut">
+<span class="targeta-categoria">Accesorios</span>
+<h2 class="targeta-titol">Teclado Mecánico Slim Wireless 65%</h2>
+<p class="targeta-descripcio">Switches silenciosos, perfil bajo y conectividad inalámbrica triple modo.</p>
+<div class="targeta-peu">
+<div class="targeta-preu-grup">
+<span class="targeta-preu">119,00 €</span>
+</div>
+<button class="boto-afegir">Añadir al carro</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Peu de pàgina net i minimalista -->
+<footer class="peu-pagina">
+<p class="">© 2025 PratShop Tech — Minimalismo y tecnología esencial.</p>
+</footer>
+
+
+</body></html>

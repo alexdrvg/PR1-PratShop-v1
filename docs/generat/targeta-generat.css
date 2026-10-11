@@ -1,0 +1,177 @@
+/* Product Card Component (.targeta-producte) */
+    .targeta-producte {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .targeta-producte:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(10, 25, 47, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .targeta-producte.sense-estoc {
+      opacity: 0.75;
+    }
+
+    .targeta-producte.sense-estoc:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--border-color);
+    }
+
+    .targeta-imatge-embolcall {
+      background-color: #f8fafc;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .targeta-imatge-embolcall.sense-estoc-imatge {
+      opacity: 0.6;
+    }
+
+    /* Header inside card image container using flexbox (no absolute position) */
+    .targeta-capcalera-imatge {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-height: 24px;
+      width: 100%;
+    }
+
+    .targeta-svg-contenidor {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .targeta-svg-contenidor svg {
+      width: 65%;
+      height: 65%;
+      max-width: 130px;
+      max-height: 130px;
+      transition: transform 0.3s ease;
+    }
+
+    .targeta-producte:not(.sense-estoc):hover .targeta-svg-contenidor svg {
+      transform: scale(1.06);
+    }
+
+    .insignia-targeta {
+      background-color: var(--accent-violet);
+      color: var(--primary-navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      align-self: flex-start;
+    }
+
+    .targeta-contingut {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.4rem;
+    }
+
+    .targeta-categoria {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .targeta-titol {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    .targeta-descripcio {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      flex-grow: 1;
+      line-height: 1.45;
+    }
+
+    .targeta-peu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .targeta-preu-grup {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .targeta-preu {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      white-space: nowrap;
+    }
+
+    .targeta-preu-antic {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .boto-afegir {
+      background-color: var(--primary-navy);
+      color: var(--bg-white);
+      border: 1px solid var(--primary-navy);
+      border-radius: 6px;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .boto-afegir:hover {
+      background-color: var(--primary-navy-hover);
+      border-color: var(--primary-navy-hover);
+    }
+
+    .boto-afegir:active {
+      transform: scale(0.97);
+    }
+
+    .boto-afegir.esgotat,
+    .boto-afegir:disabled {
+      background-color: var(--disabled-bg);
+      color: var(--disabled-text);
+      border-color: var(--disabled-border);
+      cursor: not-allowed;
+      transform: none;
+    }
