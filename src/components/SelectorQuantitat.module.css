@@ -1,0 +1,36 @@
+.contenidor {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radi-sm, 6px);
+  overflow: hidden;
+  background-color: var(--bg-white);
+}
+
+.boto {
+  background-color: transparent;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.boto:hover:not(:disabled) {
+  background-color: var(--bg-card-image, #f8fafc);
+}
+
+.boto:disabled {
+  color: var(--disabled-text, #94a3b8);
+  cursor: not-allowed;
+}
+
+.valor {
+  padding: 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 2rem;
+  text-align: center;
+}

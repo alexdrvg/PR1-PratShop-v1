@@ -1,6 +1,7 @@
+/// <reference types="../vite-env.d.ts" />
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import { Producte } from '../../tipus';
+import { Producte } from '../tipus';
 import styles from './TargetaProducte.module.css';
 
 interface TargetaProducteProps {
@@ -17,7 +18,7 @@ export default function TargetaProducte({ producte, onAfegirAlCarro }: TargetaPr
         [styles.senseEstoc]: esgotat,
       })}
     >
-      {/* Contenidor de la imatge */}
+      {/* Targeta de la imatge */}
       <div
         className={clsx(styles.targetaImatgedEmbolcall, {
           [styles.senseEstocImatge]: esgotat,

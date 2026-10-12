@@ -55,10 +55,10 @@
 
 .targetaSvgContenidor img,
 .targetaSvgContenidor svg {
-  width: 65%;
-  height: 65%;
-  max-width: 130px;
-  max-height: 130px;
+  width: 90%;
+  height: 90%;
+  max-width: 220px;
+  max-height: 220px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }

@@ -1,0 +1,60 @@
+.contenidor {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.seccioFiltres {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.categoriesGrup {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.botoFiltre {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radi-sm, 6px);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.botoFiltre:hover {
+  border-color: var(--primary-navy);
+}
+
+.botoFiltre.actiu {
+  background-color: var(--primary-navy);
+  color: var(--bg-white);
+  border-color: var(--primary-navy);
+}
+
+.comptadorResultats {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Graella adaptativa (Requisit B5) */
+.graella {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.senseResultats {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}

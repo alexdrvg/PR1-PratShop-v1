@@ -1,3 +1,4 @@
+/// <reference types="../vite-env.d.ts" /> 
 import { NavLink } from 'react-router-dom';
 import styles from './Capcalera.module.css';
 
@@ -33,7 +34,7 @@ export default function Capcalera({ cerca, onCanviCerca, totalUnitatsCarro }: Ca
           />
         </div>
 
-        {/* Accions i Carretó */}
+        {/* Accions i carro */}
         <div className={styles.capcaleraAccions}>
           <NavLink to="/carro" className={styles.botoCistella}>
             <span className={styles.cistellaIcona}>
@@ -44,7 +45,7 @@ export default function Capcalera({ cerca, onCanviCerca, totalUnitatsCarro }: Ca
               </svg>
             </span>
             <span>Carro</span>
-            {/* El globus només es mostra quan hi ha unitats al carro (B11) */}
+            {/* el comptador només es mostra quan hi ha unitats al carro */}
             {totalUnitatsCarro > 0 && (
               <span className={styles.cistellaComptador}>
                 {totalUnitatsCarro}

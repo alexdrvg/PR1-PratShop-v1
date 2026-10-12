@@ -1,0 +1,48 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors de la paleta PratShop Tech (Requisit B4) */
+  --primary-navy: #0a192f;
+  --primary-navy-hover: #172a45;
+  --accent-violet: #d8b4fe;
+  --bg-white: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --border-color-hover: #cbd5e1;
+  --border-divider: #f1f5f9;
+  --bg-card-image: #f8fafc;
+  
+  --disabled-bg: #e2e8f0;
+  --disabled-text: #94a3b8;
+  --disabled-border: #cbd5e1;
+  
+  /* Mides de radis i espais */
+  --radi-sm: 4px;
+  --radi-md: 8px;
+  --radi-lg: 12px;
+}
+
+/* Reset bàsic d'estils */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font-family: inherit;
+}
