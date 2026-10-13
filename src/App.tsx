@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom';
+import Inici from './pagines/Inici';
 import Capcalera from './components/Capcalera';
 import Cataleg from './pagines/Cataleg';
+import FitxaProducte from './pagines/FitxaProducte' ;
 import Peu from './components/Peu';
 import { Producte, LiniaCarro } from './tipus';
 
@@ -42,11 +44,12 @@ export default function App() {
     });
   };
 
-  // Unitats totals per al globus de la capçalera (Requisit B11)
+  // unitats totals x al globus de la capçalera
   const totalUnitatsCarro = carro.reduce((acc, l) => acc + l.quantitat, 0);
 
   return (
     <div className="app-contenidor">
+      
       <Capcalera
         cerca={cercaActual}
         onCanviCerca={handleCanviCerca}
@@ -54,8 +57,9 @@ export default function App() {
       />
 
       <Routes>
-        <Route path="/" element={<Cataleg onAfegirAlCarro={handleAfegirAlCarro} />} />
+        <Route path="/" element={<Inici onAfegirAlCarro={handleAfegirAlCarro} />} />
         <Route path="/cataleg" element={<Cataleg onAfegirAlCarro={handleAfegirAlCarro} />} />
+        <Route path="/producte/:id" element={<FitxaProducte onAfegirAlCarro={handleAfegirAlCarro} />} />
         <Route path="*" element={<div style={{ padding: '3rem', textAlign: 'center' }}>Pàgina no trobada (404)</div>} />
       </Routes>
 

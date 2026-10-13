@@ -18,12 +18,8 @@ export default function TargetaProducte({ producte, onAfegirAlCarro }: TargetaPr
         [styles.senseEstoc]: esgotat,
       })}
     >
-      {/* Targeta de la imatge */}
-      <div
-        className={clsx(styles.targetaImatgedEmbolcall, {
-          [styles.senseEstocImatge]: esgotat,
-        })}
-      >
+      {/* targeta envoltada x el link per anar a la pagina FitxaProducte */}
+      <Link to={`/producte/${producte.id}`} className={styles.targetaImatgedEmbolcall}>
         <div className={styles.targetaCapcaleraImatge}>
           {esgotat ? (
             <span className={styles.insigniaTargeta}>Sense stock</span>
@@ -35,34 +31,36 @@ export default function TargetaProducte({ producte, onAfegirAlCarro }: TargetaPr
         <div className={styles.targetaSvgContenidor}>
           <img src={producte.imatge} alt={producte.nom} />
         </div>
-      </div>
+      </Link>
 
-      {/* Contingut i detalls */}
+      {/* contingut i informació */}
       <div className={styles.targetaContingut}>
         <span className={styles.targetaCategoria}>{producte.categoria}</span>
         
-        <Link to={`/producte/${producte.id}`} className={styles.targetaTitol}>
-          {producte.nom}
+        {/* un sol títol envoltat pel Link*/}
+        <Link to={`/producte/${producte.id}`} style={{ textDecoration: 'none' }}>
+          <h3 className={styles.targetaTitol}>{producte.nom}</h3>
         </Link>
-        
+
         <p className={styles.targetaDescripcio}>{producte.descripcioCurta}</p>
 
-        {/* Peu de la targeta (Preu i Botó) */}
+        {/* preu i botó */}
         <div className={styles.targetaPeu}>
           <div className={styles.targetaPreuGrup}>
             <span className={styles.targetaPreu}>{producte.preu.toFixed(2)} €</span>
             {producte.preuAntic && (
-              <span className={styles.targetaPreuAntic}>{producte.preuAntic.toFixed(2)} €</span>
+              <span className={styles.targetaPreuAntic}>
+                {producte.preuAntic.toFixed(2)} €
+              </span>
             )}
           </div>
 
           <button
-            type="button"
+            onClick={() => onAfegirAlCarro(producte)}
+            disabled={esgotat}
             className={clsx(styles.botoAfegir, {
               [styles.esgotat]: esgotat,
             })}
-            disabled={esgotat}
-            onClick={() => onAfegirAlCarro(producte)}
           >
             {esgotat ? 'Esgotat' : 'Afegir al carro'}
           </button>

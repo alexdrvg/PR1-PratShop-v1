@@ -1,0 +1,88 @@
+.iniciContenidor {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 2rem 3rem 2rem; 
+  max-width: 1280px;         
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, #172a45 100%);
+  color: var(--bg-white);
+  padding: 3.5rem 1.5rem;
+  border-radius: var(--radi-lg, 16px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  
+}
+
+.heroContingut {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.heroSubtitol {
+  color: var(--accent-violet);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroTitol {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.heroDescripcio {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* botó que crida a cataleg */
+.botoHero {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--accent-violet);
+  color: var(--primary-navy);
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radi-md, 8px);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.botoHero:hover {
+  background-color: #c084fc;
+  transform: translateY(-2px);
+}
+
+/* destacats */
+.seccioDestacats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titolSeccio {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.graellaDestacats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}

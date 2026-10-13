@@ -1,0 +1,173 @@
+.detallContenidor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.botoEnrere {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: color 0.15s ease;
+}
+
+.botoEnrere:hover {
+  color: var(--primary-navy);
+}
+
+.detallTargeta {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radi-lg, 16px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.04);
+}
+
+@media (max-width: 768px) {
+  .detallTargeta {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
+
+.imatgeEmbolcall {
+  position: relative;
+  background-color: var(--bg-card-image, #f8fafc);
+  border-radius: var(--radi-md, 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  aspect-ratio: 1 / 1;
+}
+
+.imatge {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.insignia {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--accent-violet);
+  color: var(--primary-navy);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radi-sm, 4px);
+}
+
+.infoContenidor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.categoria {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.titol {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1.25;
+}
+
+.descripcio {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.preuGrup {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.preu {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.preuAntic {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.estocInfo {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ambEstoc {
+  color: #16a34a;
+}
+
+.senseEstoc {
+  color: #dc2626;
+}
+
+.botoAfegir {
+  margin-top: 1rem;
+  background-color: var(--primary-navy);
+  color: var(--bg-white);
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radi-md, 8px);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.botoAfegir:hover:not(:disabled) {
+  background-color: var(--primary-navy-hover);
+  transform: translateY(-2px);
+}
+
+.botoAfegir.esgotat,
+.botoAfegir:disabled {
+  background-color: var(--disabled-bg, #e2e8f0);
+  color: var(--disabled-text, #94a3b8);
+  cursor: not-allowed;
+}
+
+/* Estat no trobat */
+.noTrobat {
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botoTornar {
+  background-color: var(--primary-navy);
+  color: var(--bg-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radi-sm, 6px);
+  font-weight: 600;
+}
