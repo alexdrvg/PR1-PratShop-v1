@@ -46,3 +46,17 @@ a {
 button, input {
   font-family: inherit;
 }
+
+
+.app-contenidor {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* fa que les pàgines ocupin tot l'ample disponible i empenyin el peu cap avall */
+.app-contenidor > main,
+.app-contenidor > div {
+  width: 100%;
+}

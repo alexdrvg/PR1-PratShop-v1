@@ -45,6 +45,7 @@ export default function Capcalera({ cerca, onCanviCerca, totalUnitatsCarro }: Ca
               </svg>
             </span>
             <span>Carro</span>
+            
             {/* el comptador només es mostra quan hi ha unitats al carro */}
             {totalUnitatsCarro > 0 && (
               <span className={styles.cistellaComptador}>

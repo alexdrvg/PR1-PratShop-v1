@@ -3,7 +3,7 @@ import styles from './SelectorQuantitat.module.css';
 
 type Props = {
   valor: number;
-  minim?: number; // per defecte, 1
+  minim?: number; // x defecte 1
   maxim: number; // l'estoc del producte
   onCanvi: (nouValor: number) => void;
 };
