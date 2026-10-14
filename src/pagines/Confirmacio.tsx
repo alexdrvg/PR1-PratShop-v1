@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Confirmacio.module.css';
 
 export default function Confirmacio() {
-  // Generem un número de comanda aleatori per al resum
-  const numComanda = 'PS-' + Math.floor(100000 + Math.random() * 900000);
-
+  // inicilitzem l'estat executant la funcion 1 cop amb el render inicial 
+  const [numComanda] = useState(() => 'PS-' + Math.floor(100000 + Math.random() * 900000));
   return (
     <div className={styles.confirmacioContenidor}>
       <div className={styles.targetaConfirmacio}>

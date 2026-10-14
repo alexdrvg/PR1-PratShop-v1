@@ -1,7 +1,7 @@
 /// <reference types="../vite-env.d.ts" />
 import { useSearchParams } from 'react-router-dom';
 import { PRODUCTES_INICIALS } from '../dades/productes';
-import { Producte, Categoria } from '../tipus';
+import type { Producte, Categoria } from '../tipus';
 import TargetaProducte from '../components/TargetaProducte';
 import styles from './Cataleg.module.css';
 

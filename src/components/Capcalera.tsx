@@ -1,5 +1,5 @@
 /// <reference types="../vite-env.d.ts" /> 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Capcalera.module.css';
 
 interface CapcaleraProps {
@@ -9,6 +9,20 @@ interface CapcaleraProps {
 }
 
 export default function Capcalera({ cerca, onCanviCerca, totalUnitatsCarro }: CapcaleraProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // funció per gestionar l'esdeveniment d'escriptura al cercador
+  const handleInputCerca = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    onCanviCerca(text);
+
+    // si l'usuari està escrivint i NO es troba a la pàgina del catàleg, el redirigim a /cataleg
+    if (location.pathname !== '/cataleg') {
+      navigate('/cataleg');
+    }
+  };
+
   return (
     <header className={styles.capcalera}>
       <div className={styles.capcaleraContenidor}>
@@ -30,7 +44,7 @@ export default function Capcalera({ cerca, onCanviCerca, totalUnitatsCarro }: Ca
             className={styles.cercadorInput}
             placeholder="Cercar productes de tecnologia..."
             value={cerca}
-            onChange={(e) => onCanviCerca(e.target.value)}
+            onChange={handleInputCerca}
           />
         </div>
 

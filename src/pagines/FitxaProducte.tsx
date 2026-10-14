@@ -1,7 +1,7 @@
 /// <reference types="../vite-env.d.ts" />
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { PRODUCTES_INICIALS } from '../dades/productes';
-import { Producte } from '../tipus';
+import type { Producte } from '../tipus';
 import styles from './FitxaProducte.module.css';
 
 interface DetallProducteProps {

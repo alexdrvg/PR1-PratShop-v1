@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { LiniaCarro } from '../tipus';
+import type { LiniaCarro } from '../tipus';
 import styles from './Compra.module.css';
 
 interface CompraProps {

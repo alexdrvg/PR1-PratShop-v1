@@ -1,7 +1,7 @@
 /// <reference types="../vite-env.d.ts" />
 import { Link } from 'react-router-dom';
 import SelectorQuantitat from '../components/SelectorQuantitat';
-import { LiniaCarro } from '../tipus';
+import type { LiniaCarro } from '../tipus';
 import styles from './Carro.module.css';
 
 interface CarroProps {

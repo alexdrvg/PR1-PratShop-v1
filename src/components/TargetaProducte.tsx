@@ -1,7 +1,7 @@
 /// <reference types="../vite-env.d.ts" />
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import { Producte } from '../tipus';
+import type { Producte } from '../tipus';
 import styles from './TargetaProducte.module.css';
 
 interface TargetaProducteProps {
